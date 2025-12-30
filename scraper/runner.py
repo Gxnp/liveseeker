@@ -41,7 +41,26 @@ def setup_logging(job_path):
     print(f"[LOG] Logging to {log_path}")
 
 if __name__ == "__main__":
-    job_path = sys.argv[1]
+    if len(sys.argv) < 2:
+        # If no argument provided, try to find a pending job for testing
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        pending_dir = os.path.join(base_dir, "jobs", "pending")
+        
+        if os.path.exists(pending_dir):
+            pending_jobs = [f for f in os.listdir(pending_dir) if f.endswith(".json")]
+            if pending_jobs:
+                job_path = os.path.join(pending_dir, pending_jobs[0])
+                print(f"[RUNNER] No job path provided, using first pending job: {job_path}")
+            else:
+                print("[ERROR] No job path provided and no pending jobs found.")
+                print("Usage: python runner.py <job_path>")
+                sys.exit(1)
+        else:
+            print("[ERROR] No job path provided.")
+            print("Usage: python runner.py <job_path>")
+            sys.exit(1)
+    else:
+        job_path = sys.argv[1]
 
     setup_logging(job_path)
 
