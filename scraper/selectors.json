@@ -1,0 +1,53 @@
+{
+	"play_button": [
+	  { "type": "css", "value": "[aria-label*='play' i]" },
+	  { "type": "css", "value": "[class*='play' i]" },
+	  { "type": "keyword", "value": "play" },
+	  { "type": "keyword", "value": "เล่น" },
+	  { "type": "xpath", "value": "//*[contains(translate(@title,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'play')]" },
+	  { "type": "js", "value": "Array.from(document.querySelectorAll('button, div, span')).find(el => /play/i.test(el.textContent))" },
+	  { "type": "css", "value": ".jw-icon-display" },
+	  { "type": "css", "value": ".jw-display-icon-container" }
+	],
+  
+	"skip_ads_button": [
+	{ "type": "css", "value": "#skip" },
+	{ "type": "xpath", "value": "//*[@id='skip']" },
+	{ "type": "js", "value": "document.querySelector('#skip')" },
+	{ "type": "keyword", "value": "ข้ามโฆษณา" },
+	{ "type": "keyword", "value": "skip" }
+	],
+  
+	"ads_video": [
+	  { "type": "css", "value": "video[class*='ads']" },
+	  { "type": "xpath", "value": "//video[contains(@src,'ad') or contains(@class,'ad')]" },
+	  { "type": "keyword", "value": "โฆษณา" },
+	  { "type": "css", "value": "video" }
+	],
+  
+	"iframe": [
+	  { "type": "js", "value": "Array.from(document.querySelectorAll('iframe')).find(el => /(ads|video|player|embed)/i.test(el.src+el.title))" },
+	  { "type": "css", "value": "iframe[src*='doodstream.com']" },
+	  { "type": "css", "value": "iframe[src*='streamtape.com']" },
+	  { "type": "css", "value": "iframe[src*='jwplayer']" },
+	  { "type": "css", "value": "iframe[src*='embed']" }
+	],
+  
+	"live_video": [
+	  { "type": "css", "value": "video[aria-hidden='true']" },
+	  { "type": "css", "value": "video" },
+	  { "type": "keyword", "value": "live" },
+	  { "type": "keyword", "value": "ถ่ายทอดสด" },
+	  { "type": "js", "value": "document.querySelector('video[aria-hidden=\"true\"]')" },
+	  { "type": "css", "value": ".jw-video.jw-reset" }
+	],
+  
+	"refresh_buttons": [
+	  { "type": "id", "value": "icon_th-monomax03" },
+	  { "type": "id", "value": "icon_th-monomax04" },
+	  { "type": "id", "value": "icon_th-monomax05" },
+	  { "type": "id", "value": "icon_th-monomax06" },
+	  { "type": "id", "value": "icon_th-monomax07" },
+	  { "type": "id", "value": "icon_th-monomax08" }
+	]
+  }

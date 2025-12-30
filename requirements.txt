@@ -1,0 +1,9 @@
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+selenium-wire>=5.1.0
+selenium>=4.15.0
+chromedriver-autoinstaller>=0.6.0
+openpyxl>=3.1.0
+
